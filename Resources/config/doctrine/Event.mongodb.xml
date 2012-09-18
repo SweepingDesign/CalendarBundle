@@ -4,7 +4,7 @@
                         xsi:schemaLocation="http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd">
 
-    <mapped-superclass name="Rizza\CalendarBundle\Document\Event" table="calendar_event">
+    <mapped-superclass name="Rizza\CalendarBundle\Document\Event">
         <field name="title" fieldName="title" type="string" />
         <field name="category" fieldName="category" type="string" />
         <field name="description" fieldName="description" type="string" />
@@ -13,6 +13,9 @@
         <field name="endDate" fieldName="endDate" type="date" />
         <field name="location" fieldName="location" type="string" />
         <field name="url" fieldName="url" type="string" />
+        <!--
+        <reference-one name="calendar" fieldname="calendar" target-document="Rizza\CalendarBundle\Document\Calendar" inversed-by="events" />
+        -->
     </mapped-superclass>
 
 </doctrine-mongo-mapping>
