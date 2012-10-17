@@ -39,12 +39,18 @@ class EventManager extends BaseEventManager
     public function addEvent(EventInterface $event)
     {
         $this->em->persist($event);
+        foreach ($event->getTicketTypes() as $ticket_type) {
+          $this->em->persist($ticket_type);
+        }
         $this->em->flush();
     }
 
     public function updateEvent(EventInterface $event)
     {
         $this->em->persist($event);
+        foreach ($event->getTicketTypes() as $ticket_type) {
+          $this->em->persist($ticket_type);
+        }
         $this->em->flush();
 
         return true;

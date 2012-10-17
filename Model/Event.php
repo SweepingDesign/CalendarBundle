@@ -43,11 +43,14 @@ abstract class Event implements EventInterface
     protected $organizer;
 
     protected $attendees;
+    
+    protected $ticket_types;
 
     public function __construct($title = null)
     {
         $this->title = $title;
         $this->allDay = false;
+        $this->ticket_types = new ArrayCollection();
     }
 
     public function getId()
@@ -210,6 +213,7 @@ abstract class Event implements EventInterface
         return $this->organizer;
     }
 
+
     public function getAttendees()
     {
         return $this->attendees ?: $this->attendees = new ArrayCollection();
@@ -228,7 +232,6 @@ abstract class Event implements EventInterface
             $this->getAttendees()->removeElement($attendee);
         }
     }
-
     public function isOnDate(\DateTime $dateTime)
     {
         if (!$this->startDate instanceof \DateTime) {
@@ -261,4 +264,56 @@ abstract class Event implements EventInterface
 
         return $onDate;
     }
+
+    public function getTicketTypes()
+    {
+        return $this->ticket_types ?: $this->ticket_types = new ArrayCollection();
+    }
+
+    public function addTicketType(TicketType $ticket_type)
+    {
+        if (!$this->getAttendees()->contains($attendee)) {
+            $this->getAttendees()->add($attendee);
+        }
+    }
+
+    public function removeTicketType(TicketType $ticket_type)
+    {
+        if ($this->getTicketTypes()->contains($ticket_type)) {
+            $this->getTicketTypes()->removeElement($ticket_type);
+        }
+    }
+    
+    public function setTicketTypes($ticket_types)
+    {
+        $this->ticket_types = $ticket_types;
+    }
+
+/*
+    public function addTicketTypes(\Rizza\CalendarBundle\Document\TicketType $ticket_types)
+    {
+      $this->ticket_types[] = $ticket_types;
+    }
+*/
+    
+    /*
+    public function setTicketTypes(array $ticket_types) {
+      $this->ticket_types = $ticket_types;
+      return $this;
+    }
+		*/
+    
+//    public function setTicketTypes(\Doctrine\Common\Collections\Collection $ticket_types) {
+/*
+    public function setTicketTypes($ticket_types) {
+      $this->ticket_types = $ticket_types;
+    }
+    
+    public function getTicketTypes()
+    {
+      if ($this->ticket_types)
+        return $this->ticket_types;
+      else return new ArrayCollection();
+    }
+*/
 }

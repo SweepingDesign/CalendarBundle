@@ -5,6 +5,7 @@ namespace Rizza\CalendarBundle\Twig;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Rizza\CalendarBundle\Model\CalendarInterface;
 
+
 class CalendarExtension extends \Twig_Extension
 {
 
@@ -46,7 +47,7 @@ class CalendarExtension extends \Twig_Extension
         $rows = '<tr>';
         for ($i = 0; $i < $runningDay; $i++) {
             $day = $daysInPreviousMonth - ($runningDay - $i);
-            $rows .= '<td class="calendar-day-disabled">' . $day . '</td>';
+            $rows .= '<td class="calendar-day-disabled"><div class="day-number">' . $day . '</div></td>';
         }
 
         for ($day = 1; $day <= $daysInMonth; $day++) {
@@ -57,7 +58,7 @@ class CalendarExtension extends \Twig_Extension
             // @todo Find events from the given calendar falling on this day.
             $dateTime = \DateTime::createFromFormat('Y-m-d', sprintf('%d-%d-%d', $year, $month, $day));
             foreach ($calendar->getEventsOnDay($dateTime) as $event) {
-                $rows .= $event->getTitle() . ' &amp; ';
+                $rows .= '<a href="/event/show/'.$event->getId().'">'.$event->getTitle().'<br />';
             }
 
             $rows .= '</td>';
@@ -79,7 +80,7 @@ class CalendarExtension extends \Twig_Extension
 
         if ($daysInWeek < 8) {
             for ($i = 1, $n = (8 - $daysInWeek); $i <= $n; $i++) {
-                $rows .= '<td class="calendar-day-disabled">' . $i . '</td>';
+                $rows .= '<td class="calendar-day-disabled"><div class="day-number">' . $i . '</div></td>';
             }
         }
 
