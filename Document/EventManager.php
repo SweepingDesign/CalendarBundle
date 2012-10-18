@@ -49,6 +49,7 @@ class EventManager extends BaseEventManager
     {
         $this->em->persist($event);
         foreach ($event->getTicketTypes() as $ticket_type) {
+          $ticket_type->setEvent($event);
           $this->em->persist($ticket_type);
         }
         $this->em->flush();

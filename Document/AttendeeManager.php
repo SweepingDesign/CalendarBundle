@@ -63,6 +63,8 @@ class AttendeeManager extends BaseAttendeeManager
 
     public function removeAttendee(AttendeeInterface $attendee)
     {
+        $event = $attendee->getEvent();
+        $event->removeAttendee($attendee);
         $this->em->remove($attendee);
         $this->em->flush();
 

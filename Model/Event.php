@@ -267,13 +267,13 @@ abstract class Event implements EventInterface
 
     public function getTicketTypes()
     {
-        return $this->ticket_types ?: $this->ticket_types = new ArrayCollection();
+        return $this->ticket_types;
     }
 
     public function addTicketType(TicketType $ticket_type)
     {
-        if (!$this->getAttendees()->contains($attendee)) {
-            $this->getAttendees()->add($attendee);
+        if (!$this->getTicketTypes()->contains($ticket_type)) {
+            $this->getTicketTypes()->add($ticket_type);
         }
     }
 
@@ -289,31 +289,4 @@ abstract class Event implements EventInterface
         $this->ticket_types = $ticket_types;
     }
 
-/*
-    public function addTicketTypes(\Rizza\CalendarBundle\Document\TicketType $ticket_types)
-    {
-      $this->ticket_types[] = $ticket_types;
-    }
-*/
-    
-    /*
-    public function setTicketTypes(array $ticket_types) {
-      $this->ticket_types = $ticket_types;
-      return $this;
-    }
-		*/
-    
-//    public function setTicketTypes(\Doctrine\Common\Collections\Collection $ticket_types) {
-/*
-    public function setTicketTypes($ticket_types) {
-      $this->ticket_types = $ticket_types;
-    }
-    
-    public function getTicketTypes()
-    {
-      if ($this->ticket_types)
-        return $this->ticket_types;
-      else return new ArrayCollection();
-    }
-*/
 }
