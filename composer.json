@@ -1,0 +1,38 @@
+{
+    "name":        "sweepingdesign/calendar-bundle",
+    "type":        "symfony-bundle",
+    "description": "Fork of Rob Zienert`s Calendar Bundle",
+    "keywords":    ["kint", "debug", "symfony", "bundle", "twig"],
+    "homepage":    "https://github.com/SweepingDesign/CalendarBundle",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name": "Ricardo Garcia",
+            "homepage": "http://github.com/ricktg"
+        },
+        {
+            "name": "Dylan Oliver",
+            "homepage": "http://github.com/dao"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://github.com/ricktg/CalendarBundle"
+        }
+    ],
+
+    "require": {
+        "php":                      ">=5.3.2",
+        "symfony/framework-bundle": ">=2.1.0"
+    },
+
+    "minimum-stability": "dev",
+
+    "autoload": {
+        "psr-0": {
+            "Rizza\\CalendarBundle": ""
+        }
+    },
+
+    "target-dir": "Rizza/CalendarBundle"
+}
