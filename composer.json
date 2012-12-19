@@ -1,5 +1,5 @@
 {
-    "name":        "sweepingdesign/calendar-bundle",
+    "name":        "rizza/calendar-bundle",
     "type":        "symfony-bundle",
     "description": "Fork of Rob Zienert`s Calendar Bundle",
     "keywords":    ["kint", "debug", "symfony", "bundle", "twig"],
