@@ -15,19 +15,19 @@
 
     <services>
         <service id="rizza_calendar.manager.calendar.default" class="%rizza_calendar.calendar_manager.class%" public="false">
-            <argument type="service" id="doctrine.odm.mongodb.default_document_manager" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
             <argument>%rizza_calendar.calendar_document.class%</argument>
         </service>
         <service id="rizza_calendar.manager.event.default" class="%rizza_calendar.event_manager.class%" public="false">
-            <argument type="service" id="doctrine.odm.mongodb.default_document_manager" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
             <argument>%rizza_calendar.event_document.class%</argument>
         </service>
         <service id="rizza_calendar.manager.user.default" class="%rizza_calendar.manager.user.class%" public="false">
-            <argument type="service" id="doctrine.odm.mongodb.default_document_manager" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
             <argument>%rizza_calendar.model.user.class%</argument>
         </service>
         <service id="rizza_calendar.manager.attendee.default" class="%rizza_calendar.manager.attendee.class%" public="false">
-            <argument type="service" id="doctrine.odm.mongodb.default_document_manager" />
+            <argument type="service" id="doctrine_mongodb.odm.default_document_manager" />
             <argument>%rizza_calendar.model.attendee.class%</argument>
         </service>
     </services>
