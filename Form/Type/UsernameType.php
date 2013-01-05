@@ -3,6 +3,8 @@
 namespace Rizza\CalendarBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+
 use Rizza\CalendarBundle\Form\DataTransformer\UsernameToUserTransformer;
 
 class UsernameType extends AbstractType
@@ -15,12 +17,12 @@ class UsernameType extends AbstractType
         $this->usernameTransformer = $usernameTransformer;
     }
 
-    public function buildForm(FormBuilder $builder, array $options)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->appendClientTransformer($this->usernameTransformer);
     }
 
-    public function getParent(array $options)
+    public function getParent()
     {
         return 'text';
     }
