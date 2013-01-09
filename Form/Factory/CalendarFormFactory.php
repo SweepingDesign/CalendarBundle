@@ -20,7 +20,7 @@ class CalendarFormFactory implements CalendarFormFactoryInterface
 
     public function createForm($data = null)
     {
-        return $this->formFactory->createNamed($this->type, $this->name, $data);
+        return $this->formFactory->createNamed($this->name, $this->type, $data);
     }
 
 }
