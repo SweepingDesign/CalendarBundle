@@ -101,7 +101,7 @@ class CalendarManager extends BaseCalendarManager
             return false;
         }
 
-        return $user->equals($calendar->getOwner());
+        return $user->isEqualTo($calendar->getOwner());
     }
 
 }

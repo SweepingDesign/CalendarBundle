@@ -57,7 +57,7 @@ class AttendeeVoter implements VoterInterface
 
     protected function canCreate(TokenInterface $token, AttendeeInterface $attendee)
     {
-        return is_object($token->getUser()) && ($attendee->getEvent()->getCalendar()->isPublic() || $attendee->getEvent()->getOrganizer()->equals($token->getUser()));
+        return is_object($token->getUser()) && ($attendee->getEvent()->getCalendar()->isPublic() || $attendee->getEvent()->getOrganizer()->isEqualTo($token->getUser()));
     }
 
     protected function canEdit(TokenInterface $token, AttendeeInterface $attendee)

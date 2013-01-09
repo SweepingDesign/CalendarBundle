@@ -77,7 +77,7 @@ class AttendeeManager extends BaseAttendeeManager
             return false;
         }
 
-        return $user->equals($attendee->getUser()) || $user->equals($attendee->getEvent()->getOrganizer());
+        return $user->isEqualTo($attendee->getUser()) || $user->isEqualTo($attendee->getEvent()->getOrganizer());
     }
 
     public function getClass()

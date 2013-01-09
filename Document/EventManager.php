@@ -104,7 +104,7 @@ class EventManager extends BaseEventManager
             return false;
         }
 
-        return $user->equals($event->getOrganizer());
+        return $user->isEqualTo($event->getOrganizer());
     }
 
 }
